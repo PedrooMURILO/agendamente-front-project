@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="bg-gray-300 py-8">
+    <footer className="py-8">
       <div className="container px-4 lg:grid lg:grid-cols-5">
         {/* Links Úteis */}
         <div className="md:col-start-2">
