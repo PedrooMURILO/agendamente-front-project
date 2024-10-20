@@ -9,7 +9,7 @@ function Navbar() {
   };
 
   return (
-    <header className="md:sticky z-50 top-0">
+    <header className="hidden md:block md:sticky z-50 top-0">
       <nav className="flex md:flex-row px-1 py-4 md:p-8">
         <div className="md:m-auto">
           <ul className="md:flex md:flex-row md:space-x-4 space-y-1 md:space-y-0 text-xl">
