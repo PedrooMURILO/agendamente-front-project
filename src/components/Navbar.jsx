@@ -9,14 +9,14 @@ function Navbar() {
   };
 
   return (
-    <header className="hidden md:block md:sticky z-50 top-0">
+    <header className="hidden md:block md:sticky z-50 top-0 bg-blue-900 text-white">
       <nav className="flex md:flex-row px-1 py-4 md:p-8">
         <div className="md:m-auto">
           <ul className="md:flex md:flex-row md:space-x-4 space-y-1 md:space-y-0 text-xl">
             <li>
               <a
                 onClick={() => handleScroll("howWork")}
-                className="md:px-3 md:py-2 hover:border-b-4 border-black cursor-pointer"
+                className="md:px-3 md:py-2 hover:border-b-4 border-white cursor-pointer"
               >
                 Como funciona?
               </a>
@@ -24,7 +24,7 @@ function Navbar() {
             <li>
               <a
                 onClick={() => handleScroll("resources")}
-                className="md:px-3 md:py-2 hover:border-b-4 border-black cursor-pointer"
+                className="md:px-3 md:py-2 hover:border-b-4 border-white cursor-pointer"
               >
                 Recursos
               </a>
@@ -32,7 +32,7 @@ function Navbar() {
             <li>
               <a
                 onClick={() => handleScroll("needHelp")}
-                className="md:px-3 md:py-2 hover:border-b-4 border-black cursor-pointer"
+                className="md:px-3 md:py-2 hover:border-b-4 border-white cursor-pointer"
               >
                 Precisa de ajuda?
               </a>
@@ -40,7 +40,7 @@ function Navbar() {
             <li>
               <a
                 onClick={() => handleScroll("needHelp")}
-                className="md:px-3 md:py-2 hover:border-b-4 border-black cursor-pointer"
+                className="md:px-3 md:py-2 hover:border-b-4 border-white cursor-pointer"
               >
                 Login
               </a>

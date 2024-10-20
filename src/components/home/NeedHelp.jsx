@@ -2,7 +2,7 @@ function NeedHelp() {
   return (
     <section
       id="needHelp"
-      className="my-5 md:my-0 md:h-screen flex justify-center items-center"
+      className="my-5 md:my-0 md:h-screen flex justify-center items-center bg-blue-100"
     >
       <div>
         <h1 className="text-3xl text-center mb-5">Dúvidas frequentes</h1>

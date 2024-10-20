@@ -2,7 +2,7 @@ function HowWork() {
   return (
     <section
       id="howWork"
-      className="my-5 md:my-0 md:h-screen flex justify-center items-center"
+      className="my-5 md:my-0 md:h-screen flex justify-center items-center bg-blue-100"
     >
       <div>
         <h1 className="md:text-center w-full mt-2 mb-4 font-bold text-5xl">

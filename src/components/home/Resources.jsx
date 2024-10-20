@@ -2,7 +2,7 @@ function Resources() {
   return (
     <section
       id="resources"
-      className="my-5 md:my-0 md:h-screen flex justify-center items-center bg-silver"
+      className="my-5 md:my-0 md:h-screen bg-blue-900 text-white flex justify-center items-center bg-silver"
     >
       <div className="grid md:grid-cols-2 md:w-4/5 space-y-2 md:space-y-0">
         <div className="space-y-3 w-4/5 text-xl">

@@ -1,22 +1,22 @@
 function Footer() {
   return (
-    <footer className="py-8">
+    <footer className="py-8 bg-blue-900 text-white">
       <div className="container px-4 lg:grid lg:grid-cols-5">
         {/* Links Úteis */}
         <div className="md:col-start-2">
           <ul className="space-y-3">
             <li>
-              <a href="#" className="p-2 rounded-md hover:bg-gray-100">
+              <a href="#" className="p-2 rounded-md hover:bg-blue-700">
                 Início
               </a>
             </li>
             <li>
-              <a href="#" className="p-2 rounded-md hover:bg-gray-100">
+              <a href="#" className="p-2 rounded-md hover:bg-blue-700">
                 Termos de Uso
               </a>
             </li>
             <li>
-              <a href="#" className="p-2 rounded-md hover:bg-gray-100">
+              <a href="#" className="p-2 rounded-md hover:bg-blue-700">
                 Política de Privacidade
               </a>
             </li>
@@ -25,9 +25,9 @@ function Footer() {
 
         {/* Redes sociais */}
         <div className="space-x-7 text-3xl px-2 my-5 lg:my-0">
-          <i className="bi bi-linkedin hover:text-gray-500 cursor-pointer"></i>
-          <i className="bi bi-instagram hover:text-gray-500 cursor-pointer"></i>
-          <i className="bi bi-youtube hover:text-gray-500 cursor-pointer"></i>
+          <i className="bi bi-linkedin hover:text-blue-500 cursor-pointer"></i>
+          <i className="bi bi-instagram hover:text-blue-500 cursor-pointer"></i>
+          <i className="bi bi-youtube hover:text-blue-500 cursor-pointer"></i>
         </div>
 
         {/* Contato */}
