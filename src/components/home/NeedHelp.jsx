@@ -5,9 +5,9 @@ function NeedHelp() {
       className="my-5 md:my-0 md:h-screen flex justify-center items-center bg-blue-100"
     >
       <div>
-        <h1 className="text-3xl text-center mb-5">Dúvidas frequentes</h1>
-        <div className="grid md:grid-cols-2 md:w-4/5 space-y-2 md:space-y-0 m-auto">
-          <div className="space-y-3 w-4/5 text-xl">
+        <h1 className="text-5xl text-center mb-5">Dúvidas frequentes</h1>
+        <div className="md:flex space-y-2 md:space-y-0">
+          <div className="space-y-3 w-4/5 text-xl p-9">
             <div>
               <h1 className="font-bold">
                 Como configuro meus horários de atendimento?
@@ -29,7 +29,7 @@ function NeedHelp() {
               </p>
             </div>
           </div>
-          <div className="space-y-3 w-4/5 text-xl">
+          <div className="space-y-3 w-4/5 text-xl p-9">
             <div>
               <h1 className="font-bold">
                 Como visualizo e gerencio meus pacientes?
