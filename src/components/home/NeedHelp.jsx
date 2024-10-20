@@ -2,12 +2,14 @@ function NeedHelp() {
   return (
     <section
       id="needHelp"
-      className="my-5 md:my-0 md:h-screen flex justify-center items-center bg-blue-100"
+      className="my-5 md:my-0 lg:h-screen flex justify-center items-center bg-blue-100"
     >
       <div>
-        <h1 className="text-5xl text-center mb-5">Dúvidas frequentes</h1>
+        <h1 className="text-3xl mb-3 md:text-center p-9 xl:text-4xl">
+          Dúvidas frequentes
+        </h1>
         <div className="md:flex space-y-2 md:space-y-0">
-          <div className="space-y-3 w-4/5 text-xl p-9">
+          <div className="space-y-3 w-4/5 pr-9 pl-9">
             <div>
               <h1 className="font-bold">
                 Como configuro meus horários de atendimento?
@@ -29,7 +31,7 @@ function NeedHelp() {
               </p>
             </div>
           </div>
-          <div className="space-y-3 w-4/5 text-xl p-9">
+          <div className="space-y-3 w-4/5 pr-9 pl-9">
             <div>
               <h1 className="font-bold">
                 Como visualizo e gerencio meus pacientes?

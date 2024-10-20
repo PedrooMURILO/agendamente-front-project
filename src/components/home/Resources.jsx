@@ -2,11 +2,11 @@ function Resources() {
   return (
     <section
       id="resources"
-      className="my-5 md:my-0 md:h-screen bg-blue-900 text-white flex justify-center items-center bg-silver"
+      className="my-5 md:my-0 lg:h-screen bg-blue-900 text-white flex justify-center items-center"
     >
-      <div className="md:flex space-y-2 md:space-y-0">
-        <div className="space-y-3 w-4/5 text-lg p-9">
-          <h1 className="text-3xl">Para pacientes:</h1>
+      <div className="md:flex">
+        <div className="space-y-3 p-9">
+          <h1 className="text-2xl">Para pacientes:</h1>
           <p>
             <b>Ver horários disponíveis: </b>Um calendário dinâmico que mostra
             os horários livres para agendamento da triagem, com filtros de
@@ -27,8 +27,8 @@ function Resources() {
             diário pessoal.
           </p>
         </div>
-        <div className="space-y-3 w-4/5 text-lg p-9">
-          <h1 className="text-3xl">Para profissionais:</h1>
+        <div className="space-y-3 p-9">
+          <h1 className="text-2xl">Para profissionais:</h1>
           <p>
             <b>Visualizar todos os pacientes: </b>Uma lista ou dashboard com
             informações dos pacientes e um campo de busca por nome ou data.
