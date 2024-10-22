@@ -9,3 +9,24 @@ html {
 body {
   background-color: #dbeafe;
 }
+
+/* Para navegadores Webkit (Chrome, Safari, etc.) */
+header::-webkit-scrollbar {
+  width: 12px;
+}
+
+header::-webkit-scrollbar-track {
+  background-color: #1e3a8a; /* Cor do fundo da barra de rolagem */
+}
+
+header::-webkit-scrollbar-thumb {
+  background-color: #ffffff; /* Cor do "polegar" da barra de rolagem */
+  border-radius: 10px;
+  border: 3px solid #1e3a8a; /* Adiciona borda para um efeito de separação */
+}
+
+/* Para navegadores que suportam scrollbar-color (Firefox) */
+header {
+  scrollbar-color: #ffffff #1e3a8a; /* Cor do polegar e do fundo */
+  scrollbar-width: thin; /* Define a largura da barra de rolagem */
+}
