@@ -1,4 +1,4 @@
-import "../App.css";
+import "../App";
 
 function Navbar() {
   const handleScroll = (sectionId) => {
