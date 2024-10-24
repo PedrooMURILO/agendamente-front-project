@@ -1,4 +1,6 @@
+import { useHref } from "react-router-dom";
 import "../App";
+import { Link } from "lucide-react";
 
 function Navbar() {
   const handleScroll = (sectionId) => {
@@ -39,7 +41,7 @@ function Navbar() {
             </li>
             <li>
               <a
-                onClick={() => handleScroll("needHelp")}
+                onClick={() => window.location.href = '/Login/Login'}
                 className="lg:px-3 lg:py-2 hover:border-b-4 border-white cursor-pointer"
               >
                 Login
