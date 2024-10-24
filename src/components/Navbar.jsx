@@ -1,6 +1,7 @@
-import { useHref } from "react-router-dom";
+import { Navigate, useHref } from "react-router-dom";
 import "../App";
-import { Link } from "lucide-react";
+import "../App.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const handleScroll = (sectionId) => {
@@ -40,12 +41,18 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a
-                onClick={() => window.location.href = '/Login/Login'}
+             
+
+                <link
+                
+                to={"/login"}
+
                 className="lg:px-3 lg:py-2 hover:border-b-4 border-white cursor-pointer"
               >
                 Login
-              </a>
+              
+              </link>
+
             </li>
           </ul>
         </div>
