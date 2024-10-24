@@ -1,4 +1,5 @@
-import "../App.css";
+import "../App";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const handleScroll = (sectionId) => {
@@ -38,12 +39,12 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a
-                onClick={() => handleScroll("needHelp")}
+              <Link
+                to={"/login"}
                 className="lg:px-3 lg:py-2 hover:border-b-4 border-white cursor-pointer"
               >
                 Login
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
