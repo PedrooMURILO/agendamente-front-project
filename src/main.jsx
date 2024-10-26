@@ -3,7 +3,8 @@ import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./components/login/Login.jsx";
+import Login from "./components/redirectlogin/RedirectLogin.jsx";
+import RedirectLogin from "./components/redirectlogin/RedirectLogin.jsx";
 
 const router = createBrowserRouter([
   {
@@ -11,8 +12,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/login",
-    element: <Login />,
+    path: "/redirectlogin",
+    element: <RedirectLogin />,
   },
 ]);
 

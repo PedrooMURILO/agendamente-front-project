@@ -40,7 +40,7 @@ function Navbar() {
             </li>
             <li>
               <Link
-                to={"/login"}
+                to={"/redirectlogin"}
                 className="lg:px-3 lg:py-2 hover:border-b-4 border-white cursor-pointer"
               >
                 Login
