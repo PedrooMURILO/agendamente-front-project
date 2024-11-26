@@ -5,7 +5,7 @@ function RedirectLogin() {
         <h2 className="text-center text-2xl font-bold text-blue-900">Login</h2>
         <p className="text-center text-sm text-gray-600">
           Não possui conta?{' '}
-          <a href="/register" className="text-blue-500 hover:underline">
+          <a href="/registerprofessional" className="text-blue-500 hover:underline">
             Crie agora
           </a>
         </p>

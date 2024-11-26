@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/redirectlogin/RedirectLogin.jsx";
 import RedirectLogin from "./components/redirectlogin/RedirectLogin.jsx";
+import RegisterProfessional from "./components/registerprofessional/RegisterProfessional.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     path: "/redirectlogin",
     element: <RedirectLogin />,
   },
+  {
+    path: "/registerprofessional",
+    element: <RegisterProfessional />,
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(
