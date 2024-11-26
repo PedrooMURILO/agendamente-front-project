@@ -5,8 +5,8 @@ import App from "./App.jsx";
 import "./index.css";
 import RedirectLogin from "./components/redirectlogin/RedirectLogin.jsx";
 import RegisterProfessional from "./components/registerprofessional/RegisterProfessional.jsx";
-
 import RegisterPatient from "./components/registerpatient/RegisterPatient.jsx";
+import LoginProfessional from "./components/loginprofessionall/LoginProfessional.jsx";
 
 // Definindo as rotas
 const router = createBrowserRouter([
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/registerpatient",
     element: <RegisterPatient />,
+  },
+  {
+    path: "/loginprofessional",
+    element: <LoginProfessional/>,
   },
 
 
