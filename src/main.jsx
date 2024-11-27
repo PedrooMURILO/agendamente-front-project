@@ -8,6 +8,10 @@ import RegisterProfessional from "./components/registerprofessional/RegisterProf
 import RegisterPatient from "./components/registerpatient/RegisterPatient.jsx";
 import LoginProfessional from "./components/loginprofessionall/LoginProfessional.jsx";
 
+import PsychologistSchedule from "./components/psychologistschedule/PsychologistSchedule.jsx";
+
+import PsychologistProfile from "./components/psychologistprofile/PsychologistProfile.jsx";
+
 // Definindo as rotas
 const router = createBrowserRouter([
   {
@@ -30,6 +34,15 @@ const router = createBrowserRouter([
     path: "/loginprofessional",
     element: <LoginProfessional/>,
   },
+  {
+    path: "/psychologistschedule",
+    element: <PsychologistSchedule/>,
+  },
+  {
+    path: "/psychologistprofile",
+    element: <PsychologistProfile/>,
+  },
+
 
 
 ]);
