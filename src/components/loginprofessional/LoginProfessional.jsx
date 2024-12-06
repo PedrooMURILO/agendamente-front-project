@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 
-function RegisterProfessional() {
+function LoginProfessional() {
   const [formData, setFormData] = useState({
-    name: '',
-    businessName: '',
     email: '',
-    phone: '',
     password: '',
-    professionalLicense: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -20,12 +16,8 @@ function RegisterProfessional() {
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.name) newErrors.name = 'Nome é obrigatório.';
-    if (!formData.businessName) newErrors.businessName = 'Nome comercial é obrigatório.';
     if (!formData.email.includes('@')) newErrors.email = 'Insira um email válido.';
-    if (!formData.phone.match(/^\d{10,11}$/)) newErrors.phone = 'Insira um telefone válido (10-11 dígitos).';
     if (formData.password.length < 6) newErrors.password = 'A senha deve ter pelo menos 6 caracteres.';
-    if (!formData.professionalLicense) newErrors.professionalLicense = 'Registro profissional é obrigatório.';
     return newErrors;
   };
 
@@ -34,8 +26,8 @@ function RegisterProfessional() {
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
       setIsSubmitted(true);
-      console.log('Dados enviados:', formData);
-      // Lógica de envio para o backend pode ser adicionada aqui.
+      console.log('Dados de login enviados:', formData);
+      // Lógica de login pode ser adicionada aqui.
     } else {
       setErrors(validationErrors);
     }
@@ -45,23 +37,19 @@ function RegisterProfessional() {
     <div className="flex justify-center items-center h-screen bg-blue-50">
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
         <h2 className="text-center text-2xl font-bold text-blue-900">
-          Cadastro do Psicólogo
+          Login do Psicólogo
         </h2>
 
         {isSubmitted ? (
           <div className="text-center text-green-600">
-            Cadastro realizado com sucesso!
+            Login realizado com sucesso!
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             {[
-              { field: 'name', label: 'Nome' }, 
-              { field: 'businessName', label: 'Nome Comercial' },
-              { field: 'email', label: 'Email' }, 
-              { field: 'phone', label: 'Telefone' },
+              { field: 'email', label: 'Email', type: 'email' },
               { field: 'password', label: 'Senha', type: 'password' },
-              { field: 'professionalLicense', label: 'Registro Profissional' }
-            ].map(({ field, label, type = 'text' }) => (
+            ].map(({ field, label, type }) => (
               <div key={field}>
                 <label
                   htmlFor={field}
@@ -91,14 +79,14 @@ function RegisterProfessional() {
               type="submit"
               className="w-full py-2 text-white bg-blue-900 rounded-md hover:bg-blue-950 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              Cadastrar
+              Entrar
             </button>
 
             <div className="text-center text-sm">
               <p>
-                Já possui uma conta?{' '}
-                <a href="/loginprofessional" className="text-blue-600 hover:underline">
-                  Login
+                Não tem uma conta?{' '}
+                <a href="/registerprofessional" className="text-blue-600 hover:underline">
+                  Cadastre-se
                 </a>
               </p>
             </div>
@@ -109,4 +97,4 @@ function RegisterProfessional() {
   );
 }
 
-export default RegisterProfessional;
+export default LoginProfessional;

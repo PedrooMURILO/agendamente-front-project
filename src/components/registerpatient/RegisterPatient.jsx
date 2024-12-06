@@ -1,12 +1,52 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const RegisterPatient = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [whatsapp, setWhatsapp] = useState(false);
+  const [whatsapp, setWhatsapp] = useState("");
+  const [errors, setErrors] = useState({
+    name: "",
+    phone: "",
+    whatsapp: "",
+  });
 
-  const handleSubmit = (e) => {
+  // Validação dos campos
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Validação do nome
+    if (!name) {
+      newErrors.name = "Nome é obrigatório";
+    } else if (name.length < 3) {
+      newErrors.name = "Nome deve ter pelo menos 3 caracteres";
+    }
+
+    // Validação do telefone
+    const phonePattern = /^[0-9]{10,11}$/; // Exemplo de regex para telefone
+    if (!phone) {
+      newErrors.phone = "Telefone é obrigatório";
+    } else if (!phone.match(phonePattern)) {
+      newErrors.phone = "Telefone deve ter 10 ou 11 dígitos numéricos";
+    }
+
+    // Validação do WhatsApp (opcional, mas se preenchido deve ser válido)
+    const whatsappPattern = /^\+?[1-9]\d{1,14}$/; // Regex para formato de WhatsApp internacional
+    if (whatsapp && !whatsapp.match(whatsappPattern)) {
+      newErrors.whatsapp = "WhatsApp deve ter um número válido (com código do país)";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // Retorna verdadeiro se não houver erros
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      console.log("Formulário inválido");
+      return;
+    }
 
     const patientData = {
       name,
@@ -14,11 +54,19 @@ const RegisterPatient = () => {
       whatsapp,
     };
 
-    console.log("Dados do paciente cadastrados:", patientData);
+    try {
+      // Envia os dados para o backend via POST request
+      const response = await axios.post("http://localhost:5000/api/patients", patientData);
+      console.log(response.data.message);
 
-    setName("");
-    setPhone("");
-    setWhatsapp(false);
+      // Limpa os campos após o cadastro
+      setName("");
+      setPhone("");
+      setWhatsapp("");
+      setErrors({}); // Limpa os erros
+    } catch (error) {
+      console.error("Erro ao cadastrar paciente:", error);
+    }
   };
 
   return (
@@ -41,6 +89,7 @@ const RegisterPatient = () => {
               className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Digite o nome completo"
             />
+            {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
           </div>
 
           {/* Campo Telefone */}
@@ -57,20 +106,23 @@ const RegisterPatient = () => {
               className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Digite o número de telefone"
             />
+            {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
           </div>
 
-          {/* Checkbox WhatsApp */}
-          <div className="flex items-center space-x-2">
-            <input
-              type="checkbox"
-              id="whatsapp"
-              checked={whatsapp}
-              onChange={() => setWhatsapp(!whatsapp)}
-              className="h-5 w-5 text-blue-500 focus:ring-2 focus:ring-blue-500"
-            />
-            <label htmlFor="whatsapp" className="text-sm font-medium text-gray-700">
-              WhatsApp
+          {/* Campo WhatsApp */}
+          <div>
+            <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700">
+              WhatsApp (Opcional)
             </label>
+            <input
+              type="text"
+              id="whatsapp"
+              value={whatsapp}
+              onChange={(e) => setWhatsapp(e.target.value)}
+              className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Digite o número do WhatsApp"
+            />
+            {errors.whatsapp && <p className="text-red-500 text-xs">{errors.whatsapp}</p>}
           </div>
 
           {/* Botão de Enviar */}
@@ -87,7 +139,7 @@ const RegisterPatient = () => {
         <div className="text-center">
           <p className="text-sm text-gray-600">
             Já possui uma conta?{' '}
-            <a href="/login" className="text-blue-500 hover:underline">
+            <a href="/loginpatient" className="text-blue-500 hover:underline">
               Faça login
             </a>
           </p>

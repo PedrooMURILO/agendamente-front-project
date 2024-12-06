@@ -6,11 +6,24 @@ import "./index.css";
 import RedirectLogin from "./components/redirectlogin/RedirectLogin.jsx";
 import RegisterProfessional from "./components/registerprofessional/RegisterProfessional.jsx";
 import RegisterPatient from "./components/registerpatient/RegisterPatient.jsx";
-import LoginProfessional from "./components/loginprofessionall/LoginProfessional.jsx";
+
+import LoginProfessional from "./components/loginprofessional/LoginProfessional.jsx";
 
 import PsychologistSchedule from "./components/psychologistschedule/PsychologistSchedule.jsx";
 
-import PsychologistProfile from "./components/psychologistprofile/PsychologistProfile.jsx";
+
+import ScheduleSettings from "./components/schedulesettings/ScheduleSettings.jsx";
+
+
+import LoginPatient from "./components/loginpatient/LoginPatient.jsx";
+
+
+
+import ProfileProfessional from "./components/profileprofessional/ProfileProfessional.jsx";
+
+
+import UserSchedule from "./components/userschedule/UserSchedule.jsx";
+
 
 // Definindo as rotas
 const router = createBrowserRouter([
@@ -38,9 +51,23 @@ const router = createBrowserRouter([
     path: "/psychologistschedule",
     element: <PsychologistSchedule/>,
   },
+  
   {
-    path: "/psychologistprofile",
-    element: <PsychologistProfile/>,
+    path: "/schedulesettings",
+    element: <ScheduleSettings/>,
+  },
+  {
+    path: "/loginpatient",
+    element: <LoginPatient/>,
+  },
+ 
+  {
+    path: "/profileprofessional",
+    element: <ProfileProfessional/>,
+  },
+  {
+    path: "/userschedule",
+    element: <UserSchedule/>,
   },
 
 
