@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import api from '../services/api'; // Importa o arquivo para conexão com o back-end
+import { useNavigate } from 'react-router-dom'; // Para redirecionamento
+import api from '../services/api'; // Importa a conexão com o back-end
 
 function RegisterProfessional() {
   const [formData, setFormData] = useState({
@@ -14,13 +15,15 @@ function RegisterProfessional() {
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const navigate = useNavigate(); // Hook para navegação
+
   // Atualiza os campos do formulário
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Validação dos campos
+  // Valida os campos do formulário
   const validate = () => {
     const newErrors = {};
     if (!formData.name) newErrors.name = 'Nome é obrigatório.';
@@ -39,15 +42,15 @@ function RegisterProfessional() {
 
     if (Object.keys(validationErrors).length === 0) {
       try {
-        const response = await api.post('/psychologists', formData); // Envia os dados para a rota do back-end
+        const response = await api.post('/psychologists', formData); // Envia os dados para o back-end
         console.log('Dados cadastrados com sucesso:', response.data);
-        setIsSubmitted(true); // Mostra a mensagem de sucesso
+        setIsSubmitted(true); // Exibe a mensagem de sucesso
       } catch (error) {
         console.error('Erro ao cadastrar:', error.response?.data || error.message);
         setErrors({ api: 'Erro ao realizar o cadastro. Tente novamente.' });
       }
     } else {
-      setErrors(validationErrors); // Mostra erros de validação
+      setErrors(validationErrors); // Exibe erros de validação
     }
   };
 
@@ -59,24 +62,26 @@ function RegisterProfessional() {
         </h2>
 
         {isSubmitted ? (
-          <div className="text-center text-green-600">
-            Cadastro realizado com sucesso!
+          <div className="text-center">
+            <p className="text-green-600 mb-4">Cadastro realizado com sucesso!</p>
+            <button
+              onClick={() => navigate('/loginprofessional')} // Redireciona para a página de login
+              className="px-4 py-2 text-white bg-blue-900 rounded-md hover:bg-blue-950"
+            >
+              Ir para Login
+            </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
-            {[
-              { field: 'name', label: 'Nome' },
+            {[{ field: 'name', label: 'Nome' },
               { field: 'businessName', label: 'Nome Comercial' },
               { field: 'email', label: 'Email' },
               { field: 'phone', label: 'Telefone' },
               { field: 'password', label: 'Senha', type: 'password' },
-              { field: 'professionalLicense', label: 'Registro Profissional' },
+              { field: 'professionalLicense', label: 'Registro Profissional' }
             ].map(({ field, label, type = 'text' }) => (
               <div key={field}>
-                <label
-                  htmlFor={field}
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor={field} className="block text-sm font-medium text-gray-700">
                   {label}
                 </label>
                 <input
@@ -107,15 +112,6 @@ function RegisterProfessional() {
             {errors.api && (
               <p className="text-center text-red-500 mt-2">{errors.api}</p>
             )}
-
-            <div className="text-center text-sm">
-              <p>
-                Já possui uma conta?{' '}
-                <a href="/loginprofessional" className="text-blue-600 hover:underline">
-                  Login
-                </a>
-              </p>
-            </div>
           </form>
         )}
       </div>
