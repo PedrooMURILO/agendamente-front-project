@@ -92,7 +92,18 @@ function RegisterPatient() {
               <p className="text-center text-red-500 mt-2">{errors.api}</p>
             )}
           </form>
+
+          
         )}
+
+        <div className="text-center">
+          <p className="text-sm text-gray-600">
+            Já possui um registro?{' '}
+            <a href="/loginpatient" className="text-blue-500 hover:underline">
+              Login
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

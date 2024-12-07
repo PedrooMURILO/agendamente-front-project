@@ -50,24 +50,25 @@ const ProfileProfessional = () => {
         <div className="bg-white shadow-lg rounded-lg w-full max-w-4xl">
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-300 to-blue-500 p-6 rounded-t-lg text-white">
-            <h1 className="text-xl font-semibold">Bem vindo, {profile.name || "Carregando..."}</h1>
+            <h1 className="text-xl font-semibold">Bem vindo, {profile.name || "Dra. Marcela"}</h1>
             <p className="text-sm">{new Date().toLocaleDateString()}</p>
           </div>
 
           {/* Profile Section */}
           <div className="p-6 flex flex-col items-center">
             <img
-              src={profile.profileImage || "https://via.placeholder.com/150"}
+              src={profile.profileImage || "/img/profissional.png"}
               alt="Profile"
               className="w-32 h-32 rounded-full border-4 border-blue-500 mb-4"
             />
-            <h2 className="text-2xl font-bold text-gray-800">{profile.name || "Carregando..."}</h2>
-            <p className="text-gray-600">{profile.email || "Carregando..."}</p>
+
+            <h2 className="text-2xl font-bold text-gray-800">{profile.name || "Dra. Marcela"}</h2>
+            <p className="text-gray-600">{profile.email || "marceladias@gmail.com"}</p>
           </div>
 
           {/* Information Form */}
           <div className="px-8 py-4">
-            <h3 className="text-lg font-semibold text-gray-700 mb-4">Profile Information</h3>
+            <h3 className="text-lg font-semibold text-gray-700 mb-4">Informações do perfil</h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-gray-600 text-sm font-medium">Nome Completo</label>
@@ -80,7 +81,7 @@ const ProfileProfessional = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-600 text-sm font-medium">Nome de trabalho</label>
+                <label className="block text-gray-600 text-sm font-medium">Nome profissional</label>
                 <input
                   type="text"
                   value={profile.businessName || ""}
@@ -100,7 +101,7 @@ const ProfileProfessional = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-600 text-sm font-medium">Licença Profissional</label>
+                <label className="block text-gray-600 text-sm font-medium">Licença Profissional (CIP) </label>
                 <input
                   type="text"
                   value={profile.professionalLicense || ""}
@@ -119,14 +120,14 @@ const ProfileProfessional = () => {
               {/* Working Days */}
               <div>
                 <label className="block text-gray-600 text-sm font-medium">Dias da Semana</label>
-                <p className="mt-1 text-gray-800">{scheduleSettings.workingDays?.join(", ") || "Carregando..."}</p>
+                <p className="mt-1 text-gray-800">{scheduleSettings.workingDays?.join(", ") || "Segunda, quarta e sexta"}</p>
               </div>
 
               {/* Time Slot 1 */}
               <div>
                 <label className="block text-gray-600 text-sm font-medium">Período 1 (Início - Final)</label>
                 <p className="mt-1 text-gray-800">
-                  {scheduleSettings.timeSlot1 ? `${scheduleSettings.timeSlot1.start} - ${scheduleSettings.timeSlot1.end}` : "Carregando..."}
+                  {scheduleSettings.timeSlot1 ? `${scheduleSettings.timeSlot1.start} - ${scheduleSettings.timeSlot1.end}` : "8:30 - 12:00"}
                 </p>
               </div>
 
@@ -134,7 +135,7 @@ const ProfileProfessional = () => {
               <div>
                 <label className="block text-gray-600 text-sm font-medium">Período 2 (Início - Final)</label>
                 <p className="mt-1 text-gray-800">
-                  {scheduleSettings.timeSlot2 ? `${scheduleSettings.timeSlot2.start} - ${scheduleSettings.timeSlot2.end}` : "Carregando..."}
+                  {scheduleSettings.timeSlot2 ? `${scheduleSettings.timeSlot2.start} - ${scheduleSettings.timeSlot2.end}` : "14:00 - 18:00"}
                 </p>
               </div>
 
@@ -142,7 +143,7 @@ const ProfileProfessional = () => {
               <div>
                 <label className="block text-gray-600 text-sm font-medium">Datas bloqueadas</label>
                 <p className="mt-1 text-gray-800">
-                  {scheduleSettings.blockedDates?.join(", ") || "Sem datas bloqueadas"}
+                  {scheduleSettings.blockedDates?.join(", ") || "24/12/2024, 25/12/2024 e 31/12/2024"}
                 </p>
               </div>
 
@@ -156,7 +157,7 @@ const ProfileProfessional = () => {
                     className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
                   />
                 ) : (
-                  <p className="mt-1 text-gray-800">{scheduleSettings.observations || "Sem observações"}</p>
+                  <p className="mt-1 text-gray-800">{scheduleSettings.observations || "Horários disponíveis sujeito a mudanças; verificar 1 dia com antecedência."}</p>
                 )}
               </div>
             </div>

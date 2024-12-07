@@ -77,7 +77,7 @@ const ScheduleSettings = () => {
   const daysOfWeek = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#eff6ff] to-[#bfdbfe]">
+    <div className="bg-white shadow-lg rounded-lg w-full ">
       <NavbarProfessional />
       <div className="flex-1 flex justify-center items-center py-10">
         <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl p-6">
@@ -114,7 +114,7 @@ const ScheduleSettings = () => {
                     type="time"
                     value={schedule.workHours[field]}
                     onChange={(e) => handleWorkHoursChange(field, e.target.value)}
-                    className="w-full border rounded p-2 text-blue-800"
+                    className="w-full p-2 border-gray-300 rounded-md"
                   />
                 </div>
               ))}
@@ -127,18 +127,17 @@ const ScheduleSettings = () => {
             <textarea
               value={schedule.notes}
               onChange={(e) => setSchedule({ ...schedule, notes: e.target.value })}
-              className="w-full border rounded p-2 mt-2 h-28"
-              placeholder="Adicione observações importantes."
+              className="w-full p-2 border-gray-300 rounded-md"
+              placeholder="Adicione observações aqui..."
             />
           </section>
 
-          {/* Botão de Salvar */}
-          <div className="mt-6">
+          <div className="flex justify-center mt-8">
             <button
               onClick={saveSchedule}
-              className="w-full bg-blue-700 text-white py-3 rounded hover:bg-blue-800 transition"
+              className="px-6 py-2 bg-blue-500 text-white rounded-md"
             >
-              Salvar Configuração
+              Salvar Configurações
             </button>
           </div>
         </div>

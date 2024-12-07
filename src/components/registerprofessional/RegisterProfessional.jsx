@@ -114,6 +114,15 @@ function RegisterProfessional() {
             )}
           </form>
         )}
+
+        <div className="text-center">
+          <p className="text-sm text-gray-600">
+            Já possui um registro?{' '}
+            <a href="/loginprofessional" className="text-blue-500 hover:underline">
+              Login
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

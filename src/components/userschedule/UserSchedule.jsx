@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const UserSchedule = () => {
   const [professional, setProfessional] = useState({
     id: 1,
-    name: "Dra. Alice Psicóloga",
+    name: "Dr. Ricardo Psicólogo",
     image: "https://via.placeholder.com/150", // URL simulada de imagem
     availableTimes: {
       "2024-12-05": ["09:00", "10:30", "14:00"],
@@ -49,7 +49,7 @@ const UserSchedule = () => {
         {/* Informações do Profissional */}
         <div className="flex items-center justify-center space-x-4 bg-white p-4 rounded-lg shadow">
           <img
-            src={professional.image}
+            src={"/img/profissionalh.png"}
             alt={professional.name}
             className="w-24 h-24 rounded-full object-cover border-2 border-blue-500"
           />

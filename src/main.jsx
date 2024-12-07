@@ -25,6 +25,7 @@ import ProfileProfessional from "./components/profileprofessional/ProfileProfess
 import UserSchedule from "./components/userschedule/UserSchedule.jsx";
 
 
+
 // Definindo as rotas
 const router = createBrowserRouter([
   {
