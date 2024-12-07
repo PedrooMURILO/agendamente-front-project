@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import api from '../services/api'; // Importa o arquivo para conexão com o back-end
 
 function RegisterProfessional() {
   const [formData, setFormData] = useState({
@@ -13,11 +14,13 @@ function RegisterProfessional() {
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Atualiza os campos do formulário
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // Validação dos campos
   const validate = () => {
     const newErrors = {};
     if (!formData.name) newErrors.name = 'Nome é obrigatório.';
@@ -29,15 +32,22 @@ function RegisterProfessional() {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  // Envia os dados para o back-end
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
+
     if (Object.keys(validationErrors).length === 0) {
-      setIsSubmitted(true);
-      console.log('Dados enviados:', formData);
-      // Lógica de envio para o backend pode ser adicionada aqui.
+      try {
+        const response = await api.post('/psychologists', formData); // Envia os dados para a rota do back-end
+        console.log('Dados cadastrados com sucesso:', response.data);
+        setIsSubmitted(true); // Mostra a mensagem de sucesso
+      } catch (error) {
+        console.error('Erro ao cadastrar:', error.response?.data || error.message);
+        setErrors({ api: 'Erro ao realizar o cadastro. Tente novamente.' });
+      }
     } else {
-      setErrors(validationErrors);
+      setErrors(validationErrors); // Mostra erros de validação
     }
   };
 
@@ -55,12 +65,12 @@ function RegisterProfessional() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             {[
-              { field: 'name', label: 'Nome' }, 
+              { field: 'name', label: 'Nome' },
               { field: 'businessName', label: 'Nome Comercial' },
-              { field: 'email', label: 'Email' }, 
+              { field: 'email', label: 'Email' },
               { field: 'phone', label: 'Telefone' },
               { field: 'password', label: 'Senha', type: 'password' },
-              { field: 'professionalLicense', label: 'Registro Profissional' }
+              { field: 'professionalLicense', label: 'Registro Profissional' },
             ].map(({ field, label, type = 'text' }) => (
               <div key={field}>
                 <label
@@ -93,6 +103,10 @@ function RegisterProfessional() {
             >
               Cadastrar
             </button>
+
+            {errors.api && (
+              <p className="text-center text-red-500 mt-2">{errors.api}</p>
+            )}
 
             <div className="text-center text-sm">
               <p>

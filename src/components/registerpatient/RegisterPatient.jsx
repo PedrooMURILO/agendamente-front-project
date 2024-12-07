@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 
 const RegisterPatient = () => {
   const [name, setName] = useState("");
@@ -56,7 +56,7 @@ const RegisterPatient = () => {
 
     try {
       // Envia os dados para o backend via POST request
-      const response = await axios.post("http://localhost:5000/api/patients", patientData);
+      const response = await api.post("/patients", patientData);
       console.log(response.data.message);
 
       // Limpa os campos após o cadastro
