@@ -86,10 +86,8 @@ npm install
 
 npm run dev
 
-- após isso, clique sob o link que aparecerá no terminal.
+- após isso, clique sob o link que aparecerá no terminal e acesse a aplicação.
 
-
-4. Acesse a aplicação em http://localhost:3000.
 
 
 
